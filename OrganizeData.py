@@ -2,7 +2,7 @@ import glob
 from shutil import copyfile
 
 emotions = ["neutral","anger","contempt","disgust","fear","happy","sadness","surprise"]
-candidates_paths=glob.glob("D:\TESIS_MAESTERIA\DATA_SETS\CK+48")
+candidates_paths=glob.glob("D:\TESIS_MAESTERIA\DATA_SETS\CK+48") #<INCLUDE THE PATH OF THE CK+ DATASET
 
 for x in candidates_paths:
     print("candidates_paths")
