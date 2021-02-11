@@ -40,11 +40,15 @@ def crop_face(i_path,e_path):
 
     for (x, y, w, h) in req_face:
         roi_gray = gray[y:y + h, x:x + w]
-    # Writing the final cropped image to the required directory
-    temp_1=i_path
-    temp_split=temp_1.split('/')
-    final_name=temp_split[len(temp_split)-1]
-    cv2.imwrite(dest_m_dir+e_path[48:]+'/'+final_name, cv2.resize(roi_gray, (350, 350)))
+        print("roi_gray")
+        print(roi_gray)
+        # Writing the final cropped image to the required directory
+        temp_1=i_path
+        temp_split=temp_1.split('/')
+        final_name=temp_split[len(temp_split)-1]
+        print("imwrite....")
+        print(roi_gray)
+        cv2.imwrite(dest_m_dir+e_path[48:]+'/'+final_name, cv2.resize(roi_gray, (350, 350)))
 
 
 for emo_path in glob.glob(m_dir + '*'):

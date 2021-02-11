@@ -5,7 +5,8 @@ from sklearn.svm import SVC
 import glob
 import random
 import math
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
+import joblib
 
 emotions = ["anger", "happy", "sadness"] #Emotion list
 clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)) # Histogram equalization object
@@ -15,9 +16,9 @@ land_pred=dlib.shape_predictor("data/DlibPredictor/shape_predictor_68_face_landm
 svm_clf2=SVC(kernel='linear',probability=True,tol=1e-3) # SVM classifier object
 
 def get_images(emotion):
-    m_path='INCLUDE THE MAIN PATH TO YOUR IMAGES AFTER RUNNING ORGANIZE DATA'
+    m_path='data/FaceData/OrganizedData2/'#'INCLUDE THE MAIN PATH TO YOUR IMAGES AFTER RUNNING ORGANIZE DATA'
     i_path=glob.glob(m_path+emotion+'/*')
-    # print(i_path)
+    print(i_path)
     random.shuffle(i_path) # Shuffle the list of image paths
     train_paths=i_path[:int(len(i_path)*0.90)] # For validation, 90 percent of training data is used
     predict_paths=i_path[-int(len(i_path)*0.10):] # and 10 percent as test data.

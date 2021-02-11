@@ -2,11 +2,17 @@ import glob
 from shutil import copyfile
 
 emotions = ["neutral","anger","contempt","disgust","fear","happy","sadness","surprise"]
-candidates_paths=glob.glob("<INCLUDE THE PATH OF THE CK+ DATASET>")
+candidates_paths=glob.glob("D:\TESIS_MAESTERIA\DATA_SETS\CK+48")
 
 for x in candidates_paths:
-    serial=x[-4:]
+    print("candidates_paths")
+    print(x)
+    
+    serial=x[-4:]    
     for sessions in glob.glob("data/FaceData/Emotion/%s/*" %serial):
+        print("sessions")
+        print(sessions)
+        
         for files in glob.glob("%s/*" %sessions):
             file=open(files,'r')
             current_session=files[46:-30]
